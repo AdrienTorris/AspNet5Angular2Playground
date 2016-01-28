@@ -31,6 +31,8 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            DataSamples.DataSamplesManager.Initializes(Configuration.GetSection("Mappings")["BasePath"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
