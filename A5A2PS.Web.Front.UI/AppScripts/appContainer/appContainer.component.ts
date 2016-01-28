@@ -20,7 +20,13 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         if (this.routes === null) {
             this.routes = [
-                { path: "/", component: WelcomeComponent, name: "Index", useAsDefault: true }
+                { path: "/", component: WelcomeComponent, name: "Index", useAsDefault: true },
+                new AsyncRoute({
+                    path: "/posts",
+                    name: "ListBlogPosts",
+                    loader: () => System.import("app/blog/postlist.component").then(c => c["PostCollectionComponent"]),
+                    useAsDefault: false
+                })
             ];
 
             this.router.config(this.routes);

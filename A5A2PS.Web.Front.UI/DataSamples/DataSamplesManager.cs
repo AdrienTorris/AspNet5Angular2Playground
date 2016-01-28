@@ -37,5 +37,11 @@
         private static void LoadBlogPosts(string path) => _blogPosts = new BlogPostCollectionModel(LoadFile(path, "BlogPosts"));
 
         private static void LoadBlogCategories(string path) => _categories = new BlogPostCategoryCollectionModel(LoadFile(path, "BlogPostCategories"));
+
+        #region Exposed methods
+
+        public static BlogPostCollectionModel ListPosts() => _blogPosts;
+
+        #endregion
     }
 }

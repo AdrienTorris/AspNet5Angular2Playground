@@ -31,7 +31,13 @@ System.register(['angular2/core', 'angular2/router', '../home/welcome.component'
                 AppComponent.prototype.ngOnInit = function () {
                     if (this.routes === null) {
                         this.routes = [
-                            { path: "/", component: welcome_component_1.WelcomeComponent, name: "Index", useAsDefault: true }
+                            { path: "/", component: welcome_component_1.WelcomeComponent, name: "Index", useAsDefault: true },
+                            new router_1.AsyncRoute({
+                                path: "/posts",
+                                name: "ListBlogPosts",
+                                loader: function () { return System.import("app/blog/postlist.component").then(function (c) { return c["PostCollectionComponent"]; }); },
+                                useAsDefault: false
+                            })
                         ];
                         this.router.config(this.routes);
                     }
