@@ -10,6 +10,6 @@ export class WelcomeComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-        this.message = "Welcome to my ASP.NET 5 & Angular 2 sample application !"
+        this.message = "Welcome to my ASP.NET Core & Angular 2 sample application !"
     }
 }

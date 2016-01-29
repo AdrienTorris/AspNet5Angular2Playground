@@ -26,6 +26,12 @@ export class AppComponent implements OnInit {
                     name: "ListBlogPosts",
                     loader: () => System.import("app/blog/postlist.component").then(c => c["PostCollectionComponent"]),
                     useAsDefault: false
+                }),
+                new AsyncRoute({
+                    path: "/post/:id",
+                    name: "BlogPostDetails",
+                    loader: () => System.import("app/blog/postdetails.component").then(c => c["PostDetailsComponent"]),
+                    useAsDefault: false
                 })
             ];
 

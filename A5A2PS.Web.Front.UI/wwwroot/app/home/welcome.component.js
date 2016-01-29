@@ -20,7 +20,7 @@ System.register(["angular2/core"], function(exports_1) {
                 function WelcomeComponent() {
                 }
                 WelcomeComponent.prototype.ngOnInit = function () {
-                    this.message = "Welcome to my ASP.NET 5 & Angular 2 sample application !";
+                    this.message = "Welcome to my ASP.NET Core & Angular 2 sample application !";
                 };
                 WelcomeComponent = __decorate([
                     core_1.Component({

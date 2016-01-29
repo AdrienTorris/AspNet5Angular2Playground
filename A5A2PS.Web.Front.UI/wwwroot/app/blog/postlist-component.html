@@ -1,15 +1,15 @@
 ﻿<div id="postListCtn">
     <div class="container">
         <header>
-            <h3>
-                <span class="glyphicon glyphicon-user"></span>
+            <h2>
                 {{ title }}
-            </h3>
+            </h2>
         </header>
         <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="#p of posts">
                 <h3>{{ p.title }}</h3>
                 <p>{{ p.content }}</p>
+                <br /><br /><a [routerLink]="['/BlogPostDetails',{id:p.id}]">Read</a>
             </div>
         </div>
     </div>

@@ -1,4 +1,10 @@
-﻿export class BlogPost {
+﻿/**
+ * Blog post's model
+ */
+export class BlogPost {
+    /**
+    * Post's identifier (Guid)
+    */
     public id: string;
     public title: string;
     public content: string;
@@ -10,8 +16,14 @@
     }
 }
 
+/**
+ * Model of a blog's category for grouping posts
+ */
 export class BlogCategory {
     public id: number;
     public name: string;
     public description: string;
+
+    constructor() {
+    }
 }

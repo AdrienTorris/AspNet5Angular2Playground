@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map', './helpers.module'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1, http_1, helpers_module_1;
     var DataService;
     return {
         setters:[
@@ -18,7 +18,10 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (_1) {}],
+            function (_1) {},
+            function (helpers_module_1_1) {
+                helpers_module_1 = helpers_module_1_1;
+            }],
         execute: function() {
             /**
              * Service dealing with blog data
@@ -27,8 +30,14 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
                 function DataService(http) {
                     this.http = http;
                 }
+                /**
+                 * Call API to list available blog posts
+                 */
                 DataService.prototype.listBlogPosts = function () {
-                    return this.http.get('http://localhost:48900/Blog/ListPosts').map(function (res) { return res.json(); });
+                    return this.http.get(helpers_module_1.HelperModule.UrlBuilder.BuildPostListUrl()).map(function (res) { return res.json(); });
+                };
+                DataService.prototype.getBlogPost = function (id) {
+                    return this.http.get(helpers_module_1.HelperModule.UrlBuilder.BuildPostUrl(id)).map(function (res) { return res.json(); });
                 };
                 DataService = __decorate([
                     core_1.Injectable(), 

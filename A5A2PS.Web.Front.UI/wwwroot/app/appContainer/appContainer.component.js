@@ -37,6 +37,12 @@ System.register(['angular2/core', 'angular2/router', '../home/welcome.component'
                                 name: "ListBlogPosts",
                                 loader: function () { return System.import("app/blog/postlist.component").then(function (c) { return c["PostCollectionComponent"]; }); },
                                 useAsDefault: false
+                            }),
+                            new router_1.AsyncRoute({
+                                path: "/post/:id",
+                                name: "BlogPostDetails",
+                                loader: function () { return System.import("app/blog/postdetails.component").then(function (c) { return c["PostDetailsComponent"]; }); },
+                                useAsDefault: false
                             })
                         ];
                         this.router.config(this.routes);
