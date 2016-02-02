@@ -39,6 +39,16 @@
                 return Tags.Split(new char[] { ',', '|', ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
             }
         }
+
+        public BlogPostModel(string title, int categoryId, string content, string author = null, string authorMail = null)
+        {
+            Title = title;
+            Category = categoryId;
+            Content = content;
+            Author = author;
+            AuthorMail = authorMail;
+            Id = Guid.NewGuid();
+        }
     }
 
     public class BlogPostCollectionModel : List<BlogPostModel>
