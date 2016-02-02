@@ -1,0 +1,74 @@
+﻿<div id="create-post">
+    <div class="container">
+        <header>
+            <h3>Create new post</h3>
+        </header>
+        <div [hidden]="submitted">
+            <div class="row">
+                <form (ngSubmit)="onSubmit()" #newPostForm="ngForm">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="title" class="req">Title</label>
+                            <input type="text" class="form-control"
+                                   [(ngModel)]="blogPost.title"
+                                   ngControl="title" #title="ngForm"
+                                   required />
+                            <div [hidden]="title.valid" class="alert alert-danger">
+                                Please enter a title
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="category" class="req">Category</label>
+                            <select class="form-control" ngControl="category" #category="ngForm" [(ngModel)]="blogPost.category">
+                                <option *ngFor="#catg of categories" [value]="catg.id">{{catg.name}}</option>
+                            </select>
+                            <div [hidden]="category.valid" class="alert alert-danger">
+                                Please select a category for this post
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="content" class="req">Content</label>
+                            <textarea class="form-control"
+                                   [(ngModel)]="blogPost.content"
+                                   ngControl="content" #content="ngForm"
+                                   required >
+
+                            </textarea>
+                            <div [hidden]="content.valid" class="alert alert-danger">
+                                Please enter a post content.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="author">Author's Name</label>
+                            <input type="text" class="form-control"
+                                   [(ngModel)]="blogPost.author"
+                                   ngControl="author" #author="ngForm" />
+                        </div>
+                        <div class="form-group">
+                            <label for="authorMail">Author's email address</label>
+                            <input type="text" class="form-control"
+                                   [(ngModel)]="blogPost.authorMail"
+                                   ngControl="authorMail" #authorMail="ngForm" />
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" [disabled]="!newPostForm.form.valid">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div [hidden]="!submitted" [style.display]="submitted?'block':'none'">
+            <div [style.display]="operationFinished?'none':'block'">
+                <h1>Please wait ... [spinner]</h1>
+            </div>
+            <div [style.display]="operationFinished?'block':'none'">
+                <div [style.display]="operationStatus?'none':'block'">
+                    <h1>Operation has failed :s</h1>
+                </div>
+                <div [style.display]="operationStatus?'block':'none'">
+                    <h1>Operation succeed !</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

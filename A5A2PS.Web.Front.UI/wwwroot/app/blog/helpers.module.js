@@ -23,6 +23,22 @@ System.register(['../shared/constants/UrlBuilderConstants'], function(exports_1)
                     UrlBuilder.BuildPostUrl = function (id) {
                         return UrlBuilderConstants_1.UrlBuilderConstants.API_BASE_URL + 'Blog/Get?id=' + id;
                     };
+                    UrlBuilder.BuildCreateUrl = function () {
+                        return UrlBuilderConstants_1.UrlBuilderConstants.API_BASE_URL + 'Blog/Create';
+                    };
+                    UrlBuilder.BuildCreatePostBody = function (bp) {
+                        var body = 'title=' + bp.title + '&content=' + bp.content + '&catgid=' + bp.category;
+                        if (bp.author != null && bp.author != 'undefined') {
+                            body += '&author=' + bp.author;
+                        }
+                        if (bp.authorMail != null && bp.authorMail != 'undefined') {
+                            body += '&authorm=' + bp.authorMail;
+                        }
+                        return body;
+                    };
+                    UrlBuilder.BuildCategoryListUrl = function () {
+                        return UrlBuilderConstants_1.UrlBuilderConstants.API_BASE_URL + 'Blog/ListCategories';
+                    };
                     return UrlBuilder;
                 })();
                 HelperModule.UrlBuilder = UrlBuilder;

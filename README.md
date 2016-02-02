@@ -11,4 +11,5 @@ To make it work in your environment, just two settings to change :
 * localhost's port number in shared url builder helper (AppScripts/shared/constants/UrlBuilderConstants.ts)
 <br /><br />
 
-If you have any question, remark, suggestion or correction, you can contact me at adrientorris[at]gmail.com.
+
+*If you have any question, remark, suggestion or correction, you can contact me at adrientorris[at]gmail.com.*

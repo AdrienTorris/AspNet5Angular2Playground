@@ -16,7 +16,12 @@ System.register([], function(exports_1) {
              * Model of a blog's category for grouping posts
              */
             BlogCategory = (function () {
-                function BlogCategory() {
+                //constructor() {
+                //}
+                function BlogCategory(id, name, desc) {
+                    this.id = id;
+                    this.name = name;
+                    this.description = desc;
                 }
                 return BlogCategory;
             })();

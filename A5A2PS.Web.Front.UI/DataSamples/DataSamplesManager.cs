@@ -44,6 +44,8 @@
 
         public static BlogPostModel GetPost(Guid id) => _blogPosts.Where(bp => bp.Id == id).Select(bp => bp).FirstOrDefault();
 
+        public static BlogPostCategoryCollectionModel ListCategories() => _categories;
+
         #endregion
     }
 }

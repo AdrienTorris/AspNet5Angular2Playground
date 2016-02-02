@@ -1,2 +1,5 @@
-﻿body {
-}
+﻿div.form-group > label.req{}
+div.form-group > label.req::after{content:'*';color:red;}
+div.form-group > div.alert-danger{color:red;font-style:italic;}
+div.form-group > input[type="text"].ng-valid[required] {border-left: 5px solid #42A948;}
+div.form-group > input[type="text"].ng-invalid {border-left: 5px solid #a94442;}

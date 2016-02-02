@@ -43,6 +43,12 @@ System.register(['angular2/core', 'angular2/router', '../home/welcome.component'
                                 name: "BlogPostDetails",
                                 loader: function () { return System.import("app/blog/postdetails.component").then(function (c) { return c["PostDetailsComponent"]; }); },
                                 useAsDefault: false
+                            }),
+                            new router_1.AsyncRoute({
+                                path: "/post/add",
+                                name: "AddPost",
+                                loader: function () { return System.import("app/blog/addpost.component").then(function (c) { return c["CreatePostComponent"]; }); },
+                                useAsDefault: false
                             })
                         ];
                         this.router.config(this.routes);
