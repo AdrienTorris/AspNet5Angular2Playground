@@ -38,6 +38,10 @@ export module HelperModule {
             return UrlBuilderConstants.API_BASE_URL + 'Blog/ListCategories';
         }
 
+        static BuildCheckPostTitleUnicityUrl(title:string): string {
+            return UrlBuilderConstants.API_BASE_URL + 'Blog/CheckPostTitleUnicity?ttl=' + title;
+        }
+
     }
 
 }

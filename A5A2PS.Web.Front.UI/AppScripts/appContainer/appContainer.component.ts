@@ -38,6 +38,12 @@ export class AppComponent implements OnInit {
                     name: "AddPost",
                     loader: () => System.import("app/blog/addpost.component").then(c => c["CreatePostComponent"]),
                     useAsDefault: false
+                }),
+                new AsyncRoute({
+                    path: "/post/add2",
+                    name: "AddPostWithValidators",
+                    loader: () => System.import("app/blog/createpost.component").then(c => c["AddPostComponent"]),
+                    useAsDefault: false
                 })
             ];
 

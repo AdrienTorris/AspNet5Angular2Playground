@@ -1,0 +1,61 @@
+﻿<div id="create-post">
+    <div class="container">
+        <header>
+            <h3>Create new post</h3>
+        </header>
+        <div [hidden]="submitted">
+            <div class="row">
+                <form [ngFormModel]="addPostForm">
+                    <div class="form-group">
+                        <label for="title" class="req">Title</label>
+                        <input type="text" ngControl="title" />
+                        <p *ngIf="title.pending">Fetching data from the server...</p>
+                        <div *ngIf="title.dirty && !title.valid && !title.pending" class="alert alert-danger">
+                            <p *ngIf="title.errors.required">Title is required.</p>
+                            <p *ngIf="title.errors.titleFormat">Your title can't start with a number</p>
+                            <p *ngIf="title.errors.titleUnicity">This title is taken</p>
+                            <p *ngIf="title.errors.startsWithNumber">Your title can't start with a number</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="req">Category</label>
+                        <select class="form-control" ngControl="category">
+                            <option *ngFor="#catg of categories" [value]="catg.id">{{catg.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="authorName" class="req">Author's name</label>
+                        <input type="text" ngControl="authorName" />
+                        <div *ngIf="authorName.dirty && !authorName.valid" class="alert alert-danger">
+                            <p *ngIf="authorName.errors.required">Author's name is required.</p>
+                            <p *ngIf="authorName.errors.startsWithNumber">Author's name can't start with a number</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="authorMail" class="req">Author's mail</label>
+                        <input type="text" ngControl="authorMail" />
+                        <div *ngIf="authorMail.dirty && !authorMail.valid" class="alert alert-danger">
+                            <p *ngIf="authorMail.errors.required">authorMail is required.</p>
+                            <p *ngIf="authorMail.errors.incorrectMailFormat">Your author's mail address format is invalid.</p>
+                        </div>
+                    </div>
+
+                    <button (click)="submitData()" [disabled]="!addPostForm.valid" class="btn btn-primary">Add new post</button>
+                </form>
+            </div>
+        </div>
+        <div [hidden]="!submitted" [style.display]="submitted?'block':'none'">
+            <div [style.display]="operationFinished?'none':'block'">
+                <h1>[spinner]</h1>
+            </div>
+            <div [style.display]="operationFinished?'block':'none'">
+                <div [style.display]="operationStatus?'none':'block'">
+                    <h1>Operation failure</h1>
+                </div>
+                <div [style.display]="operationStatus?'block':'none'">
+                    <h1>Operation succeed</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

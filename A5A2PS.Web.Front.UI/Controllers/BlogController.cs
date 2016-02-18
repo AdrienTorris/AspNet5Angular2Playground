@@ -59,5 +59,15 @@
         [Route("[action]")]
         [HttpGet]
         public JsonResult ListCategories() => Json(DataSamplesManager.ListCategories());
+
+        [Route("[action]")]
+        [HttpGet]
+        public bool CheckPostTitleUnicity(string ttl)
+        {
+            if (string.IsNullOrWhiteSpace(ttl))
+                return false;
+
+            return true;
+        }
     }
 }

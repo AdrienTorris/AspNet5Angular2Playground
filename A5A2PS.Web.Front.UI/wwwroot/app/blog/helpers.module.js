@@ -39,6 +39,9 @@ System.register(['../shared/constants/UrlBuilderConstants'], function(exports_1)
                     UrlBuilder.BuildCategoryListUrl = function () {
                         return UrlBuilderConstants_1.UrlBuilderConstants.API_BASE_URL + 'Blog/ListCategories';
                     };
+                    UrlBuilder.BuildCheckPostTitleUnicityUrl = function (title) {
+                        return UrlBuilderConstants_1.UrlBuilderConstants.API_BASE_URL + 'Blog/CheckPostTitleUnicity?ttl=' + title;
+                    };
                     return UrlBuilder;
                 })();
                 HelperModule.UrlBuilder = UrlBuilder;

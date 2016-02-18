@@ -49,6 +49,12 @@ System.register(['angular2/core', 'angular2/router', '../home/welcome.component'
                                 name: "AddPost",
                                 loader: function () { return System.import("app/blog/addpost.component").then(function (c) { return c["CreatePostComponent"]; }); },
                                 useAsDefault: false
+                            }),
+                            new router_1.AsyncRoute({
+                                path: "/post/add2",
+                                name: "AddPostWithValidators",
+                                loader: function () { return System.import("app/blog/createpost.component").then(function (c) { return c["AddPostComponent"]; }); },
+                                useAsDefault: false
                             })
                         ];
                         this.router.config(this.routes);
