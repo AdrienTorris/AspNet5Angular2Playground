@@ -28,20 +28,20 @@ System.register(['angular2/http', 'rxjs/add/operator/map', 'angular2/core', './h
         execute: function() {
             PostValidator = (function () {
                 function PostValidator(http) {
-                    var _this = this;
                     this.http = http;
-                    setTimeout(function () {
-                        var headers = new http_1.Headers();
-                        headers.append('Content-Type', 'application/json');
-                        _this.http.get('http://localhost:48900/api/Blog/CheckPostTitleUnicity?ttl=dfdfdfdfd', { headers: headers })
-                            .map(function (res) { return res.json(); })
-                            .subscribe(function (data) {
-                            console.log(data);
-                        });
-                    }, 2000);
+                    //setTimeout(() => {
+                    //    var headers: Headers = new Headers();
+                    //    headers.append('Content-Type', 'application/json');
+                    //    this.http.get('http://localhost:48900/api/Blog/CheckPostTitleUnicity?ttl=dfdfdfdfd', { headers: headers })
+                    //        .map(res => res.json())
+                    //        .subscribe(data => {
+                    //            console.log(data);
+                    //        })
+                    //}, 2000);
                 }
                 PostValidator.titleUnicity = function (control, http) {
                     var _this = this;
+                    // not working : issue here : https://github.com/angular/angular/issues/1068
                     return new Promise(function (resolve) {
                         setTimeout(function () {
                             var headers = new http_1.Headers();
